@@ -17,6 +17,12 @@ import mimetypes
 from io import BytesIO
 from pathlib import Path
 import qrcode
+
+# ========== 修复打包后 MIME 类型问题 ==========
+# 强制注册 .js 文件的 MIME 类型，确保打包后也能正确识别
+mimetypes.add_type('application/javascript', '.js')
+mimetypes.add_type('text/css', '.css')
+
 from fastapi import FastAPI, File, UploadFile, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse, Response, FileResponse
