@@ -1,0 +1,339 @@
+/* ========== 插件管理器专属样式 ========== */
+
+.pm-list-view,
+.pm-detail-view {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* 搜索栏 */
+.pm-search-wrap {
+    margin-bottom: 12px;
+}
+
+.pm-search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.pm-search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* 统计栏 */
+.pm-stats-bar {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 10px;
+    padding: 0 2px;
+}
+
+/* 插件网格 */
+.pm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    flex: 1;
+    overflow-y: auto;
+    align-content: start;
+}
+
+.pm-empty {
+    text-align: center;
+    color: #888;
+    padding: 40px 0;
+    font-size: 0.9rem;
+    grid-column: 1 / -1;
+}
+
+/* 插件卡片 */
+.pm-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 160px;
+}
+
+.pm-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body[data-theme="dark"] .pm-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.pm-card.disabled {
+    opacity: 0.55;
+}
+
+.pm-card.disabled .pm-card-icon,
+.pm-card.disabled .pm-card-name {
+    filter: grayscale(0.8);
+}
+
+.pm-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.pm-card-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.pm-card-version {
+    font-size: 0.7rem;
+    color: #888;
+    background: var(--bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.pm-card-body {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.pm-card-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pm-card-author {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 6px;
+}
+
+.pm-card-desc {
+    font-size: 0.8rem;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.35;
+}
+
+body[data-theme="dark"] .pm-card-desc {
+    color: #aaa;
+}
+
+.pm-card-footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+}
+
+/* 开关组件 */
+.pm-toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text);
+    user-select: none;
+}
+
+.pm-toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 36px;
+    height: 20px;
+    background: var(--border);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+    margin: 0;
+    border: none;
+}
+
+.pm-toggle:checked {
+    background: var(--primary);
+}
+
+.pm-toggle::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.pm-toggle:checked::after {
+    transform: translateX(16px);
+}
+
+.pm-toggle:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.pm-toggle-label {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.pm-badge {
+    font-size: 0.65rem;
+    background: var(--primary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* 底部操作栏 */
+.pm-footer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* 详情页 */
+.pm-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pm-detail-info {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pm-detail-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pm-detail-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.pm-detail-meta h3 {
+    margin: 0 0 8px 0;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.pm-detail-meta p {
+    margin: 0 0 5px 0;
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.4;
+}
+
+.pm-detail-meta p strong {
+    color: var(--text);
+}
+
+.pm-detail-desc {
+    margin-top: 10px !important;
+    color: var(--text) !important;
+    line-height: 1.5 !important;
+    font-size: 0.9rem !important;
+}
+
+.pm-detail-section {
+    margin-bottom: 20px;
+}
+
+.pm-detail-section h4 {
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+    color: var(--text);
+    border-left: 3px solid var(--primary);
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.pm-detail-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pm-hint {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 日志 */
+.pm-log-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pm-log-entry {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+    background: var(--bg);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    line-height: 1.4;
+    border-left: 3px solid var(--border);
+}
+
+.pm-log-entry:nth-child(odd) {
+    background: rgba(128,128,128,0.05);
+}
+
+/* 模态框内日志适配 */
+.plugin-modal .pm-log-list {
+    margin-top: 8px;
+}

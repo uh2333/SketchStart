@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地速写练习管理器</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 768px) {
+            #lan-toggle-wrapper { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 左侧插件竖条 -->
+    <div id="plugin-ribbon">
+        <!-- 动态插件图标由 JS 插入 -->
+    </div>
+
+    <!-- 左侧插件面板（从左侧滑出） -->
+    <div id="plugin-sidebar-panel">
+        <div id="plugin-sidebar-header">
+            <span id="plugin-sidebar-title">插件</span>
+            <button id="plugin-sidebar-close">✕</button>
+        </div>
+                <!-- 列表视图 -->
+        <div id="plugin-list-view">
+            <div id="plugin-list"></div>
+        </div>
+        <!-- 内容视图 -->
+        <div id="plugin-content-view" style="display:none; flex:1; flex-direction:column;">
+            <!-- <button id="plugin-back-btn" class="btn small" style="margin:8px;">← 返回列表</button> -->
+            <div id="plugin-panels-container" style="flex:1; overflow:hidden; position:relative;"></div>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <div id="main-content">
+        <!-- 顶部导航栏 -->
+        <div id="top-navbar">
+            <span class="logo">Sketch Practice</span>
+            <div class="toggles">
+                <div id="lan-toggle-wrapper">
+                    <label><span>局域网</span><input type="checkbox" id="toggle-lan"></label>
+                </div>
+                <label><span>深色模式</span><input type="checkbox" id="toggle-theme"></label>
+                <button id="open-defaults-btn" class="btn small" title="设置默认值">⚙️ 默认设置</button>
+                <button id="multi-practice-btn" class="btn small">🎯 多图包练习</button>
+                <button id="manage-mode-btn" class="btn small">🔧 管理</button>
+            </div>
+        </div>
+
+        <!-- 视图：首页 -->
+        <div id="view-home" class="view-container">
+            <h2>素材包</h2>
+            <div id="package-grid" class="grid"></div>
+            <div id="empty-tip" class="empty-tip">暂无素材包，请点击下方按钮添加。</div>
+            <button id="upload-btn" class="btn">添加图包</button>
+            <input type="file" id="file-input" accept=".zip,.rar,.jpg,.jpeg,.png,.webp" style="display:none">
+
+            <h2>收藏分类</h2>
+            <div id="favorites-grid" class="grid"></div>
+            <div id="favorites-empty-tip" class="empty-tip">暂无收藏，练习时点击收藏按钮即可保存。</div>
+        </div>
+
+        <!-- 视图：设置页 -->
+        <div id="view-settings" class="view-container" style="display:none">
+            <button id="back-to-home" class="btn">← 返回首页</button>
+            <div class="settings-card">
+                <div class="field">
+                    <label id="source-label">当前图包：</label>
+                    <span id="current-package-name"></span>
+                </div>
+                <div class="field">
+                    <label>随机抽取数量：</label>
+                    <input type="number" id="input-count" min="1" value="5">
+                    <small id="manual-hint" style="display:none;color:gray;">若勾选图片，将以勾选为准</small>
+                </div>
+                <div class="field">
+                    <label>切换间隔：</label>
+                    <select id="select-interval">
+                        <option value="60">1分钟</option>
+                        <option value="180">3分钟</option>
+                        <option value="300">5分钟</option>
+                        <option value="600">10分钟</option>
+                        <option value="1200">20分钟</option>
+                        <option value="1800">30分钟</option>
+                        <option value="3600">60分钟</option>
+                    </select>
+                </div>
+                <div id="file-preview-list" class="file-list" style="display:none;"></div>
+                <button id="start-practice-btn" class="btn primary">开始练习</button>
+            </div>
+        </div>
+
+        <!-- 视图：播放器 -->
+        <div id="view-player" class="view-container" style="display:none">
+            <div class="player-header">
+                <div id="timer-progress" class="progress-bar"><div class="progress-fill"></div></div>
+                <span id="timer-text">60</span>秒
+            </div>
+            <div id="image-wrapper"><img id="player-image" src="" alt="练习图片"></div>
+            <div class="player-controls">
+                <input type="range" id="zoom-slider" min="5" max="500" value="100" title="缩放">
+                <button id="fit-screen-btn" class="btn small">适应</button>
+                <button id="pause-btn" class="btn">暂停</button>
+                <button id="prev-btn" class="btn">上一张</button>
+                <button id="next-btn" class="btn">下一张</button>
+                <button id="favorite-btn" class="btn">收藏</button>
+                <button id="finish-partial-btn" class="btn" title="标记当前及之前的图片为已完成">结束练习</button>
+                <button id="finish-all-btn" class="btn" title="标记本次所有图片为已完成">全部完成</button>
+            </div>
+        </div>
+
+        <!-- 视图：多图包练习设置 -->
+        <div id="view-multi-settings" class="view-container" style="display:none">
+            <button id="back-from-multi" class="btn">← 返回首页</button>
+            <h2>多图包练习</h2>
+            <div id="multi-practices-list"></div>
+            <div class="field">
+                <label>总间隔：</label>
+                <select id="multi-interval">
+                    <option value="60">1分钟</option>
+                    <option value="180">3分钟</option>
+                    <option value="300">5分钟</option>
+                    <option value="600">10分钟</option>
+                    <option value="1200">20分钟</option>
+                    <option value="1800">30分钟</option>
+                    <option value="3600">60分钟</option>
+                </select>
+            </div>
+            <button id="multi-start-practice-btn" class="btn primary">开始多图包练习</button>
+        </div>
+
+        <!-- 视图：收藏夹浏览 -->
+        <div id="view-favorites-browser" class="view-container" style="display:none">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
+                <button id="favorites-browser-back" class="btn">← 返回</button>
+                <span id="favorites-breadcrumb" style="font-weight:bold;">收藏夹</span>
+            </div>
+            <div id="favorites-browser-controls" class="browser-controls">
+                <label>抽取数量：<input type="number" id="browser-count" min="1" value="5" style="width:60px;"></label>
+                <label>间隔：<select id="browser-interval">
+                    <option value="60">1分钟</option><option value="180">3分钟</option><option value="300">5分钟</option>
+                    <option value="600">10分钟</option><option value="1200">20分钟</option><option value="1800">30分钟</option>
+                    <option value="3600">60分钟</option>
+                </select></label>
+                <button id="browser-random-btn" class="btn primary">🎲 随机抽取练习</button>
+                <button id="browser-selected-btn" class="btn" style="display:none;">开始练习选中</button>
+            </div>
+            <h3>📁 文件夹</h3>
+            <div id="favorites-folders-grid" class="grid"></div>
+            <h3>🖼️ 图片</h3>
+            <div id="favorites-images-grid" class="grid"></div>
+        </div>
+    </div>
+
+    <!-- 默认设置弹窗 -->
+    <div id="defaults-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h3>修改默认练习参数</h3>
+            <div class="field"><label>默认抽取数量：</label><input type="number" id="default-count-input" min="1" value="5"></div>
+            <div class="field"><label>默认间隔：</label><select id="default-interval-select"><option value="60">1分钟</option><option value="180">3分钟</option><option value="300">5分钟</option><option value="600">10分钟</option><option value="1200">20分钟</option><option value="1800">30分钟</option><option value="3600">60分钟</option></select></div>
+            <div class="modal-actions">
+                <button id="save-defaults-btn" class="btn primary">保存</button>
+                <button id="close-defaults-btn" class="btn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 二维码弹窗 -->
+    <div id="qr-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3>手机扫码访问</h3>
+            <img id="qr-modal-image" src="" alt="QR Code" style="width:200px; height:200px;">
+            <p id="qr-modal-url" style="word-break:break-all; margin-top:10px;"></p>
+            <button id="close-qr-modal" class="btn">关闭</button>
+        </div>
+    </div>
+
+    <!-- 上传图片选择弹窗 -->
+    <div id="upload-image-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3>上传图片到图包</h3>
+            <div class="field"><label>选择图包：</label><select id="existing-package-select"><option value="">-- 选择一个图包 --</option></select></div>
+            <div class="field"><label>或新建图包名称：</label><input type="text" id="new-package-name" placeholder="新图包名（不含.zip）"></div>
+            <div class="modal-actions">
+                <button id="upload-to-package-btn" class="btn primary">确认上传</button>
+                <button id="cancel-upload-btn" class="btn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 移动图片选择弹窗 -->
+    <div id="move-image-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3>移动图片到...</h3>
+            <div class="field">
+                <label>目标分类：</label>
+                <select id="target-category-select"></select>
+            </div>
+            <div class="modal-actions">
+                <button id="confirm-move-btn" class="btn primary">确认移动</button>
+                <button id="cancel-move-btn" class="btn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载顺序：先 API 层，再主逻辑 -->
+    <script src="sketch-api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

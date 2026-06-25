@@ -1,0 +1,11 @@
+{
+  "id": "img_color",
+  "name": "色彩",
+  "version": "1.0.0",
+  "description": "实时调节练习图片的亮度、对比度、饱和度及灰度模式，支持保存预设css版本",
+  "author": "uh2333",
+  "main": "color_main.js",
+  "backend": "color_backend.py",
+  "icon": "🎨",
+  "permissions": ["ui", "vault", "events"]
+}

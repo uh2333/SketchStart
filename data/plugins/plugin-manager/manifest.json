@@ -1,0 +1,10 @@
+{
+    "id": "plugin-manager",
+    "name": "插件管理器",
+    "description": "管理所有已安装插件的启用/禁用、配置和卸载",
+    "version": "0.0.0",
+    "author": "uh2333",
+    "main": "main.js",
+    "icon": "🔌",
+    "permissions": ["ui", "vault", "events"]
+}

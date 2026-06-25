@@ -1,0 +1,11 @@
+{
+  "id": "image_transform",
+  "name": "图片变换",
+  "version": "1.0.0",
+  "description": "自由旋转、上下/左右翻转，支持保存预设",
+  "author": "uh2333",
+  "main": "main.js",
+  "backend": "backend.py",
+  "icon": "↻",
+  "category": "image"
+}

@@ -1,0 +1,31 @@
+{
+  "presets": [
+    {
+      "brightness": 0,
+      "contrast": 0,
+      "saturation": 0,
+      "hue_rotate": 0,
+      "blur": 20,
+      "opacity": 100,
+      "grayscale": true,
+      "invert": true,
+      "sepia": true,
+      "keep_settings": true,
+      "name": "ttest"
+    },
+    {
+      "name": "test",
+      "brightness": 0,
+      "contrast": 0,
+      "saturation": 0,
+      "hue_rotate": 225,
+      "blur": 0,
+      "opacity": 100,
+      "grayscale": false,
+      "invert": false,
+      "sepia": false,
+      "keep_settings": true
+    }
+  ],
+  "updatedAt": null
+}

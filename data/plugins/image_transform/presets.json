@@ -1,0 +1,19 @@
+{
+  "presets": [
+    {
+      "rotation": 59,
+      "flip_horizontal": true,
+      "flip_vertical": true,
+      "keep_settings": false,
+      "name": "lock"
+    },
+    {
+      "name": "test",
+      "rotation": 66,
+      "flip_horizontal": true,
+      "flip_vertical": true,
+      "keep_settings": true
+    }
+  ],
+  "updatedAt": null
+}

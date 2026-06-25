@@ -1,0 +1,8 @@
+{
+  "lan_enabled": false,
+  "ai_enabled": false,
+  "theme": "light",
+  "default_count": 20,
+  "default_interval": 60,
+  "default_upload_package": ""
+}

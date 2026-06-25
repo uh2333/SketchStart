@@ -1,0 +1,475 @@
+:root {
+    /* 主色板 - 白底蓝调，亮色点缀 */
+    --bn-primary: #7A9BB5;          /* 柔和雾蓝（主色） */
+    --bn-primary-hover: #5F7F99;    /* 悬停加深 */
+    --bn-primary-light: rgba(122, 155, 181, 0.10);
+    --bn-primary-border: rgba(122, 155, 181, 0.20);
+    --bn-bg: #FFFFFF;               /* 纯白背景，无缝融入网页 */
+    --bn-bg-secondary: #F5F7FA;     /* 极浅灰（卡片、输入框背景） */
+    --bn-bg-tertiary: #E8ECF0;      /* 浅灰（图标容器、次要按钮） */
+    --bn-border: #DCE2E8;           /* 柔和灰色边框 */
+    --bn-text: #2C3E50;             /* 深蓝灰（正文，可读性好） */
+    --bn-text-muted: #6B7A8A;       /* 柔和灰（次要文字） */
+    --bn-success: #22C55E;          /* 亮绿色（成功） */
+    --bn-warning: #F5A623;          /* 亮橙黄（警告、待处理） */
+    --bn-danger: #EF4444;           /* 亮红色（错误） */
+    --bn-shadow: 0 12px 32px rgba(122, 155, 181, 0.10);
+    --bn-radius: 6px;
+}
+/* ---------- 授权面板 ---------- */
+.bn-auth-panel {
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+    overflow-y: auto;
+    background: var(--bn-bg) !important;
+}
+.bn-auth-start {
+    text-align: center;
+    width: 100%;
+}
+.bn-auth-desc {
+    color: var(--bn-text-muted) !important;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+}
+.bn-auth-url-box {
+    width: 100%;
+}
+.bn-label {
+    font-size: 12px;
+    color: var(--bn-text-muted) !important;
+    margin-bottom: 6px;
+}
+.bn-url-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+.bn-url-input {
+    flex: 1;
+    padding: 6px 8px;
+    background: var(--bn-bg-secondary) !important;
+    border: 1px solid var(--bn-border) !important;
+    border-radius: var(--bn-radius);
+    color: var(--bn-text) !important;
+    font-size: 11px;
+    font-family: monospace;
+}
+.bn-url-input:focus { outline: none; border-color: var(--bn-primary) !important; }
+.bn-hint {
+    font-size: 11px;
+    color: var(--bn-text-muted) !important;
+}
+.bn-code-row {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    margin-top: 6px;
+}
+.bn-code-input {
+    flex: 1;
+    padding: 8px 12px;
+    background: var(--bn-bg-secondary) !important;
+    border: 1px solid var(--bn-border) !important;
+    border-radius: var(--bn-radius);
+    color: var(--bn-text) !important;
+    font-size: 13px;
+}
+.bn-code-input:focus { outline: none; border-color: var(--bn-primary) !important; }
+.bn-code-input::placeholder { color: var(--bn-text-muted) !important; }
+.bn-code-input:disabled { opacity: 0.5; }
+.bn-auth-actions {
+    margin-top: 6px;
+}
+
+/* ---------- 文件浏览器 ---------- */
+.bn-file-browser {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bn-bg) !important;
+}
+.bn-breadcrumb-bar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: var(--bn-bg-secondary) !important;
+    border-bottom: 1px solid var(--bn-border) !important;
+    min-height: 32px;
+}
+.bn-breadcrumb-path {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow-x: auto;
+    font-size: 12px;
+    scrollbar-width: none;
+}
+.bn-breadcrumb-path::-webkit-scrollbar { display: none; }
+.bn-breadcrumb-item {
+    padding: 2px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: var(--bn-text-muted) !important;
+    white-space: nowrap;
+    transition: all 0.15s;
+}
+.bn-breadcrumb-item:hover {
+    background: var(--bn-bg-tertiary) !important;
+    color: var(--bn-text) !important;
+}
+.bn-breadcrumb-item.active {
+    color: var(--bn-primary) !important;
+    font-weight: 500;
+    cursor: default;
+}
+.bn-breadcrumb-item.active:hover { background: transparent !important; }
+.bn-breadcrumb-sep {
+    color: var(--bn-text-muted) !important;
+    user-select: none;
+}
+.bn-file-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px;
+    background: var(--bn-bg) !important;
+}
+.bn-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 40px;
+    color: var(--bn-text-muted) !important;
+}
+.bn-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 40px;
+    color: var(--bn-text-muted) !important;
+}
+.bn-file-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: var(--bn-radius);
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-bottom: 2px;
+    background: var(--bn-bg) !important;
+}
+.bn-file-item:hover { background: var(--bn-bg-secondary) !important; }
+.bn-file-item.bn-selected {
+    background: var(--bn-primary-light) !important;
+    border: 1px solid var(--bn-primary-border) !important;
+}
+.bn-file-item.bn-not-allowed { opacity: 0.4; }
+.bn-file-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--bn-radius);
+    background: var(--bn-bg-tertiary) !important;
+    flex-shrink: 0;
+}
+.bn-file-icon svg { width: 14px; height: 14px; }
+.bn-icon-folder { color: #eab308; }
+.bn-icon-image { color: #22c55e; }
+.bn-icon-zip { color: #a855f7; }
+.bn-icon-file { color: var(--bn-text-muted); }
+.bn-file-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 0;
+}
+.bn-file-name {
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--bn-text) !important;
+}
+.bn-file-size {
+    font-size: 10px;
+    color: var(--bn-text-muted) !important;
+}
+.bn-file-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+.bn-not-allowed-tag {
+    font-size: 9px;
+    color: var(--bn-danger);
+    padding: 1px 4px;
+    background: rgba(239, 68, 68, 0.08);
+    border-radius: 2px;
+}
+.bn-enter-icon {
+    width: 12px;
+    height: 12px;
+    color: var(--bn-text-muted);
+}
+
+/* ---------- 对话框（下载/上传） ---------- */
+.bn-dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.bn-dialog {
+    background: var(--bn-bg) !important;
+    border: 1px solid var(--bn-border) !important;
+    border-radius: 10px;
+    padding: 16px;
+    width: 90%;
+    max-width: 340px;
+    box-shadow: var(--bn-shadow);
+}
+.bn-dialog h3 {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    color: var(--bn-text) !important;
+}
+.bn-dialog p {
+    color: var(--bn-text-muted) !important;
+    margin-bottom: 12px;
+    font-size: 12px;
+}
+.bn-dialog-input {
+    margin-bottom: 12px;
+}
+.bn-dialog-input label {
+    display: block;
+    font-size: 11px;
+    color: var(--bn-text-muted) !important;
+    margin-bottom: 4px;
+}
+.bn-dialog .bn-input,
+#bn-upload-local,
+#bn-upload-remote,
+#bn-download-name {
+    width: 100%;
+    padding: 6px 10px;
+    background: var(--bn-bg-secondary) !important;
+    border: 1px solid var(--bn-border) !important;
+    border-radius: var(--bn-radius);
+    color: var(--bn-text) !important;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+.bn-dialog .bn-input:focus,
+#bn-upload-local:focus,
+#bn-upload-remote:focus,
+#bn-download-name:focus {
+    outline: none;
+    border-color: var(--bn-primary) !important;
+    box-shadow: 0 0 0 2px var(--bn-primary-light);
+}
+.bn-dialog-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+}
+
+/* ---------- 按钮 ---------- */
+.bn-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: var(--bn-radius);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.bn-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.bn-btn-primary {
+    background: var(--bn-primary) !important;
+    color: white !important;
+}
+.bn-btn-primary:hover:not(:disabled) { background: var(--bn-primary-hover) !important; }
+.bn-btn-secondary {
+    background: var(--bn-bg-tertiary) !important;
+    color: var(--bn-text) !important;
+    border: 1px solid var(--bn-border) !important;
+}
+.bn-btn-secondary:hover:not(:disabled) { background: var(--bn-bg-secondary) !important; }
+.bn-btn-text {
+    background: transparent !important;
+    color: var(--bn-text-muted) !important;
+    padding: 4px 8px;
+}
+.bn-btn-text:hover:not(:disabled) {
+    color: var(--bn-text) !important;
+    background: var(--bn-bg-secondary) !important;
+}
+.bn-btn-danger { color: var(--bn-danger) !important; }
+.bn-btn-danger:hover:not(:disabled) {
+    color: #dc2626 !important;
+    background: rgba(239, 68, 68, 0.06) !important;
+}
+.bn-btn-small {
+    padding: 2px 8px;
+    font-size: 10px;
+}
+.bn-btn-icon {
+    padding: 4px;
+    background: transparent !important;
+    color: var(--bn-text-muted) !important;
+}
+.bn-btn-icon:hover:not(:disabled) {
+    background: var(--bn-bg-tertiary) !important;
+    color: var(--bn-text) !important;
+}
+.bn-btn-icon svg { width: 14px; height: 14px; }
+.bn-btn-icon:disabled { opacity: 0.3; }
+
+/* ---------- 底部 ---------- */
+.bn-footer-bar {
+    padding: 4px 12px;
+    border-top: 1px solid var(--bn-border) !important;
+    text-align: right;
+    background: var(--bn-bg-secondary) !important;
+}
+.bn-quota {
+    font-size: 10px;
+    color: var(--bn-text-muted) !important;
+}
+.bn-footer-actions {
+    padding: 6px 12px;
+    border-top: 1px solid var(--bn-border) !important;
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    background: var(--bn-bg-secondary) !important;
+}
+
+/* ---------- 状态提示 ---------- */
+.bn-error {
+    color: var(--bn-danger) !important;
+    font-size: 11px;
+    margin-top: 4px;
+    text-align: center;
+}
+.bn-info {
+    color: var(--bn-warning) !important;
+    font-size: 11px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* ---------- 动画 ---------- */
+.bn-spinner {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: bn-spin 0.6s linear infinite;
+}
+.bn-spinner-large {
+    width: 24px;
+    height: 24px;
+    border-width: 3px;
+}
+.bn-spin {
+    animation: bn-spin 1s linear infinite;
+}
+@keyframes bn-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- 下载徽章 ---------- */
+.bn-downloaded-badge {
+    font-size: 9px;
+    color: var(--bn-success);
+    background: rgba(34, 197, 94, 0.12);
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 4px;
+}
+
+/* ---------- 本地文件列表（上传对话框） ---------- */
+#bn-local-files-container {
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 1px solid var(--bn-border) !important;
+    border-radius: var(--bn-radius);
+    padding: 4px;
+    background: var(--bn-bg) !important;
+    display: none;
+}
+.bn-local-file-list {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0;
+}
+.bn-local-file-list li {
+    padding: 4px 8px;
+    margin: 1px 0;
+    background: var(--bn-bg-secondary) !important;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--bn-text) !important;
+    transition: background 0.15s;
+}
+.bn-local-file-list li:hover {
+    background: var(--bn-bg-tertiary) !important;
+}
+.bn-local-file-list li:active {
+    background: #d1d5db !important; /* 可保留或替换为变量 */
+}
+
+/* ---------- 覆盖宿主深色主题 ---------- */
+.bn-dialog input,
+.bn-dialog button,
+.bn-dialog .bn-input {
+    background: var(--bn-bg-secondary) !important;
+    color: var(--bn-text) !important;
+    border-color: var(--bn-border) !important;
+}
+.bn-dialog .bn-btn-primary {
+    background: var(--bn-primary) !important;
+    color: white !important;
+}
+.bn-dialog .bn-btn-secondary {
+    background: var(--bn-bg-tertiary) !important;
+    color: var(--bn-text) !important;
+}

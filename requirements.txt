@@ -1,0 +1,57 @@
+annotated-doc @ file:///C:/miniconda3/conda-bld/annotated-doc_1763372678094/work
+annotated-types @ file:///C:/miniconda3/conda-bld/annotated-types_1761745045323/work
+anyio @ file:///C:/Users/task_177313442952008/croot/anyio_1773134529773/work
+blinker @ file:///C:/miniconda3/conda-bld/blinker_1764332315443/work
+bypy==1.8.9
+certifi @ file:///C:/Users/task_177937038000344/croot/certifi_1779370454774/work/certifi
+cffi @ file:///C:/miniconda3/conda-bld/cffi_1761832794697/work
+charset-normalizer==3.4.7
+click @ file:///C:/Users/task_178117615502724/croot/click_1781176571843/work
+colorama @ file:///C:/b/abs_a9ozq0l032/croot/colorama_1672387194846/work
+cryptography @ file:///C:/Users/task_178160135828530/croot/cryptography-split_1781601439028/work
+dill==0.4.1
+dnspython @ file:///C:/miniconda3/conda-bld/dnspython_1763718338084/work
+email-validator @ file:///C:/miniconda3/conda-bld/email-validator-meta_1758610268565/work
+exceptiongroup @ file:///C:/Users/task_178047840994980/croot/exceptiongroup_1780478501129/work
+fastapi @ file:///C:/Users/task_177921318170893/croot/fastapi-split_1779213536858/work
+fastapi-cli @ file:///C:/Users/task_176837315094792/croot/fastapi-cli_1768373490857/work
+Flask @ file:///C:/Users/task_177209711655499/croot/flask_1772097179770/work
+h11 @ file:///C:/miniconda3/conda-bld/h11_1761931282349/work
+httpcore @ file:///C:/b/abs_25m7_xthp6/croot/httpcore_1748526065845/work
+httptools @ file:///C:/miniconda3/conda-bld/httptools_1763634963536/work
+httpx @ file:///C:/miniconda3/conda-bld/httpx_1760447376159/work
+idna @ file:///C:/Users/task_178056140106162/croot/idna_1780561468696/work
+itsdangerous @ file:///C:/b/abs_c4vwgdr5yn/croot/itsdangerous_1716533399914/work
+Jinja2 @ file:///C:/b/abs_920kup4e6u/croot/jinja2_1741711580669/work
+markdown-it-py @ file:///C:/Users/task_177754046208962/croot/markdown-it-py_1777540583951/work
+MarkupSafe @ file:///C:/b/abs_a0ma7ge0jc/croot/markupsafe_1738584052792/work
+mdurl @ file:///C:/miniconda3/conda-bld/mdurl_1758552284437/work
+multiprocess==0.70.19
+netifaces @ file:///C:/b/abs_aaqf7b0ml3/croot/netifaces_1736370825476/work
+packaging==26.0
+pillow @ file:///C:/Users/task_178098875092084/croot/pillow_1780988952298/work
+pycparser @ file:///C:/Users/task_177495971250430/croot/pycparser_1774959822609/work
+pydantic @ file:///C:/Users/task_177868336703281/croot/pydantic_1778683903223/work
+pydantic-extra-types @ file:///C:/Users/task_176830766245045/croot/pydantic-extra-types_1768308516779/work
+pydantic-settings @ file:///C:/miniconda3/conda-bld/pydantic-settings_1764165196642/work
+pydantic_core @ file:///C:/Users/task_177867691180519/croot/pydantic-core_1778677019046/work
+Pygments @ file:///C:/Users/task_177512674411643/croot/pygments_1775127039817/work
+python-dotenv @ file:///C:/Users/task_176855914096354/croot/python-dotenv_1768559764857/work
+python-multipart @ file:///C:/Users/task_177988894895048/croot/python-multipart_1779889668287/work
+PyYAML @ file:///C:/miniconda3/conda-bld/pyyaml_1763465513320/work
+qrcode @ file:///C:/b/abs_0alluak1c7/croot/qrcode_1756383770578/work
+requests==2.34.2
+requests-toolbelt==1.0.0
+rich @ file:///C:/Users/task_177886064015566/croot/rich_1778860816401/work
+rich-toolkit @ file:///C:/Users/task_176830857256775/croot/rich-toolkit_1768308694273/work
+shellingham @ file:///C:/miniconda3/conda-bld/shellingham_1761912226126/work
+starlette @ file:///C:/Users/task_178094844250724/croot/starlette-recipe_1780948787572/work
+tomli @ file:///C:/Users/task_176829653256119/croot/tomli_1768296653758/work
+typer @ file:///C:/Users/task_177870119478116/croot/typer_1778701945600/work
+typing-inspection @ file:///C:/miniconda3/conda-bld/typing-inspection_1760614192776/work
+typing_extensions @ file:///C:/b/abs_ecq8gc0vbm/croot/typing_extensions_1756281142218/work
+urllib3==2.7.0
+uvicorn @ file:///C:/Users/task_176822583451910/croot/uvicorn-split_1768226501063/work
+watchfiles @ file:///C:/Users/task_178004058569577/croot/watchfiles_1780040709696/work
+websockets @ file:///C:/b/abs_5a70jm9s4j/croot/websockets_1751974439266/work
+Werkzeug @ file:///C:/Users/task_177249115096347/croot/werkzeug_1772491250650/work

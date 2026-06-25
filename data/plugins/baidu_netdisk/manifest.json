@@ -1,0 +1,11 @@
+{
+  "id": "baidu_netdisk",
+  "name": "百度网盘导入",
+  "version": "1.0.0",
+  "description": "从百度网盘浏览并下载图包",
+  "author": "uh2333",
+  "main": "main.js",
+  "backend": "backend.py",
+  "icon": "☁️",
+  "permissions": ["ui", "vault", "events"]
+}
